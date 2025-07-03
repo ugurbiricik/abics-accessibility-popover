@@ -1,0 +1,103 @@
+@import "./fontsize.css";
+
+.abicsAccessibilityPopover * {
+  border: 0 0 0 1px solid rgba(0, 57, 133, 0.863);
+  border-radius: 0 !important;
+  box-shadow: none;
+  background-color: whitesmoke;
+  color: rgba(0, 57, 133, 0.863);
+
+
+}
+
+.abicsAccessibilityPopover {
+  border-radius: 3px !important;
+}
+
+.abicsAccessibilityPopover .sapMPopoverWrapper {
+  border-radius: 3px !important;
+}
+
+.abicsAccessibilityPopover .sapMPanel.resetAllPanel .sapMTB.sapMTBStandard {
+  border: 0 !important;
+}
+
+.abicsAccessibilityPopover .sapMPanelContent .sapMBtnInner .sapUiIcon {
+  border: 0 !important;
+  border-radius: 7px !important;
+
+}
+
+.abicsAccessibilityPopover .sapMPanelContent .sapMBtnInner {
+  border: 1px solid rgba(0, 57, 133, 0.863) !important;
+  border-radius: 7px !important;
+}
+
+.abicsAccessibilityPopover .sapMTitle.popoverTitle {
+  font-weight: bolder;
+}
+
+.abicsAccessibilityPopover .sapMPanelContent .sapMSlt {
+  border: 1px solid rgba(0, 57, 133, 0.863) !important;
+  border-radius: 7px !important;
+}
+
+.abicsAccessibilityPopover .sapMPanel .sapMTB.sapMPanelHeaderTB {
+  background-color: whitesmoke;
+  color: rgba(0, 57, 133, 0.863);
+}
+
+.abicsAccessibilityPopover .sapMPanel .sapMTB.sapMPanelHeaderTB .sapMTitle,
+.abicsAccessibilityPopover .sapMPanel .sapMTB.sapMPanelHeaderTB .sapUiIcon {
+  color: rgba(0, 57, 133, 0.863);
+  background-color: whitesmoke;
+
+}
+
+.abicsAccessibilityPopover .sapMPanelContent {
+  padding: 3px;
+}
+
+.abicsAccessibilityPopover .sapMTitle {
+  font-weight: normal;
+  font-family: auto;
+  font-size: 1.2rem;
+}
+
+.abicsAccessibilityPopover .sapMSliderProgress,
+.abicsAccessibilityPopover .sapMSliderInner {
+  background-color: rgba(0, 57, 133, 0.863);
+}
+
+.abicsAccessibilityPopover .sapMSwtLabel {
+  background-color: rgba(0, 57, 133, 0.863);
+  color: whitesmoke;
+  border-radius: 7px !important;
+}
+
+.abicsAccessibilityPopover .sapMSwt {
+  border-radius: 7px !important;
+  border: 0 !important;
+}
+
+.abicsAccessibilityPopover .sapMSwtInner .sapMSwtHandle {
+  background-color: rgba(0, 57, 133, 0.863);
+  border-radius: 7px !important;
+  border: 0 !important;
+}
+
+.abicsAccessibilityPopover .sapMSwtText {
+  border-radius: 7px !important;
+  border: 0 !important;
+}
+
+.abicsAccessibilityPopover .sapMPopoverHeader .sapMBarContainer *,
+.abicsAccessibilityPopover .sapMPopoverHeader .sapMBarContainer {
+  background-color: rgb(39, 39, 134);
+  color: whitesmoke;
+
+}
+
+.abicsAccessibilityPopover .sapMPopoverHeader .sapMBtnIcon {
+  color: whitesmoke !important;
+}

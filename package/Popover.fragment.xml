@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Popover
+        class="abicsAccessibilityPopover sapUiSmallMargin"
+        id="abicsAccessibilityPopover"
+        placement="Bottom"
+        showArrow="false"
+        title="Eye Able Assistent"
+        contentWidth="300px"
+    >
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Title text="Accessibility Assistent" class="popoverTitle" />
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://notification" press=".onPopoverClosePress" tooltip="Schließen" class="closePopoverButton"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.FontSizePanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.TextToSpeechPanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.ColorBlindnessPanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.BlaufilterPanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.NightModePanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.ToggleImagesPanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.ContrastModePanel"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="abics-accessibility-popover.fragments.ResetAllPanel"
+                type="XML"
+            />
+        </content>
+    </Popover>
+</core:FragmentDefinition>

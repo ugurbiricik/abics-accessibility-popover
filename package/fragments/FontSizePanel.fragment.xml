@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Panel id="fontSizePanel" expandable="true" expanded="{settings>/fontSizeExpanded}" width="auto" class="fontSizePanel">
+      <headerToolbar>
+         <OverflowToolbar active="true" press="onFontSizeToolbarPress">
+          <core:Icon src="sap-icon://text" size="20px" />
+          <Title text="Schriftgröße"/>
+         </OverflowToolbar>
+      </headerToolbar>
+      <content>
+         <VBox justifyContent="Center" alignItems="Center" width="100%">
+            <Button id="fontStepInput" text="{settings>/fontStep}" width="150px"/>
+            <HBox alignItems="Center" width="150px" justifyContent="SpaceBetween">
+               <Button id="decreaseFontButton" icon="sap-icon://less" />
+               <Button id="resetFontButton" icon="sap-icon://refresh" />
+               <Button id="increaseFontButton" icon="sap-icon://add" />
+            </HBox>
+         </VBox>
+      </content>
+   </Panel>
+</core:FragmentDefinition> 

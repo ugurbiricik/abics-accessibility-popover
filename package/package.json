@@ -1,0 +1,19 @@
+{
+  "name": "abics-accessibility-popover",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A custom accessibility popover for SAP UI5 applications.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SAP",
+    "UI5",
+    "accessibility",
+    "popover"
+  ],
+  "author": "Abics",
+  "license": "ISC"
+}

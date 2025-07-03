@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Panel id="resetAllPanel" expandable="false" width="auto" class="resetAllPanel">
+      <headerToolbar>
+         <OverflowToolbar active="true" press=".onResetAllToolbarPress">
+            <core:Icon src="sap-icon://reset" size="20px" />
+            <Title text="Alles zurücksetzen" />
+         </OverflowToolbar>
+      </headerToolbar>
+   </Panel>
+</core:FragmentDefinition> 
