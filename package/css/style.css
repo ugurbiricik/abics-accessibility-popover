@@ -11,11 +11,11 @@
 }
 
 .abicsAccessibilityPopover {
-  border-radius: 3px !important;
+  border-radius: 10px !important;
 }
 
 .abicsAccessibilityPopover .sapMPopoverWrapper {
-  border-radius: 3px !important;
+  border-radius: 10px !important;
 }
 
 .abicsAccessibilityPopover .sapMPanel.resetAllPanel .sapMTB.sapMTBStandard {
