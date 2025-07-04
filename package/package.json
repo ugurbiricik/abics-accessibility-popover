@@ -1,5 +1,5 @@
 {
-  "name": "abics-accessibility-popover",
+  "name": "abics_accessibility_popover",
   "version": "1.0.0",
   "type": "module",
   "description": "A custom accessibility popover for SAP UI5 applications.",

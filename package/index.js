@@ -165,7 +165,7 @@ export const openAbicsAccessibilityPopover = async (controller, oEvent) => {
 
         controller._pPopover = Fragment.load({
             id: sFragmentId,
-            name: "abics-accessibility-popover.Popover",
+            name: "abics_accessibility_popover.Popover",
             controller: popoverInternalController
         }).then((oPopover) => {
             oView.addDependent(oPopover);

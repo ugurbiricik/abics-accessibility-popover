@@ -1,6 +1,6 @@
 
 import BaseController from "./BaseController";
-import {openAbicsAccessibilityPopover} from "abics-accessibility-popover";
+import {openAbicsAccessibilityPopover} from "abics_accessibility_popover";
 import UIEvent from "sap/ui/base/Event";
 
 /**

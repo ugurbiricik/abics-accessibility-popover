@@ -111,7 +111,7 @@ This enables proper **type checking**, **auto-completion**, and **editor integra
 sap.ui.define([
   "./BaseController",
   "sap/m/MessageBox",
-  "abics-accessibility-popover",
+  "abics_accessibility_popover",
   "sap/ui/base/Event"
 ], function (BaseController, MessageBox, AccessibilityPopover, Event) {
   "use strict";
@@ -132,7 +132,7 @@ sap.ui.define([
 import MessageBox from "sap/m/MessageBox";
 import BaseController from "./BaseController";
 import UIEvent from "sap/ui/base/Event";
-import { openAbicsAccessibilityPopover } from "abics-accessibility-popover";
+import { openAbicsAccessibilityPopover } from "abics_accessibility_popover";
 
 /**
  * @namespace tsapp.controller

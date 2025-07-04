@@ -6,10 +6,10 @@ export function loadCustomStyleOnce() {
   }
 
   try {
-    const sCorrectPath = sap.ui.require.toUrl("abics-accessibility-popover/css/style.css");
+    const sCorrectPath = sap.ui.require.toUrl("abics_accessibility_popover/css/style.css");
 
     const link = document.createElement("link");
-    link.id = "abics-accessibility-popover-styles";
+    link.id = "abics_accessibility_popover-styles";
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = sCorrectPath;

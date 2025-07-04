@@ -22,35 +22,35 @@
         </customHeader>
         <content>
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.FontSizePanel"
+                fragmentName="abics_accessibility_popover.fragments.FontSizePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.TextToSpeechPanel"
+                fragmentName="abics_accessibility_popover.fragments.TextToSpeechPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.ColorBlindnessPanel"
+                fragmentName="abics_accessibility_popover.fragments.ColorBlindnessPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.BlaufilterPanel"
+                fragmentName="abics_accessibility_popover.fragments.BlaufilterPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.NightModePanel"
+                fragmentName="abics_accessibility_popover.fragments.NightModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.ToggleImagesPanel"
+                fragmentName="abics_accessibility_popover.fragments.ToggleImagesPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.ContrastModePanel"
+                fragmentName="abics_accessibility_popover.fragments.ContrastModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics-accessibility-popover.fragments.ResetAllPanel"
+                fragmentName="abics_accessibility_popover.fragments.ResetAllPanel"
                 type="XML"
             />
         </content>
