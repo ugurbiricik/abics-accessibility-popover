@@ -156,3 +156,19 @@ export default class Main extends BaseController {
 ---
 
 > This workflow allows you to develop, test, and reuse powerful UI5 utilities across projects with full compatibility for both JavaScript and TypeScript-based environments.
+
+## Cap Project
+
+root package.json
+
+  "cds": {
+    "cds-plugin-ui5": {
+      "modules": {
+        "test": {
+          "configFile": "ui5.yaml"
+        }
+      }
+    }
+  }
+
+
