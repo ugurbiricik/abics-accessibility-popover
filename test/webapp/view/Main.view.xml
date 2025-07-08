@@ -12,7 +12,7 @@
 		title="{i18n>appTitle}"
 		id="page">
 		<headerContent>
-			<Button text="Accessibility Popover" press="openAbicsAccessibilityPopover"/>
+			<Button press="openAbicsAccessibilityPopover" icon="sap-icon://accessibility" />
 		</headerContent>
 		<content>
 			<IllustratedMessage
@@ -20,11 +20,6 @@
 				illustrationType="sapIllus-SuccessHighFive"
 				enableVerticalResponsiveness="true"
 				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello" />
-				</additionalContent>
 			</IllustratedMessage>
 		
 		</content>
