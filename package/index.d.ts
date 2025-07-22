@@ -1,2 +1,2 @@
 // package/index.d.ts
-export function openAbicsAccessibilityPopover(controller: any, oEvent: any): void;
+export function openAccessPopover(controller: any, oEvent: any): void;
