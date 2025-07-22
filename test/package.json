@@ -46,7 +46,6 @@
 		"wdio-ui5-service": "^2.1.1"
 	},
 	"dependencies": {
-		"abics_accessibility_popover": "^1.0.0",
-		"abics-accessibility-popover": "^1.0.1"
+		"abics_accessibility_popover": "^1.0.7"
 	}
 }

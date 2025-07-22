@@ -6,17 +6,16 @@ export function loadCustomStyleOnce() {
   }
 
   try {
-    const sCorrectPath = sap.ui.require.toUrl("abics_accessibility_popover/css/style.css");
+    const sCorrectPath = sap.ui.require.toUrl("access_popover/css/style.css");
 
     const link = document.createElement("link");
-    link.id = "abics_accessibility_popover-styles";
+    link.id = "access_popover-styles";
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = sCorrectPath;
     document.head.appendChild(link);
     
     isCustomStyleLoaded = true;
-    console.log("Custom CSS loaded successfully from:", sCorrectPath);
   } catch (error) {
       console.error("Failed to load custom CSS:", error);
   }

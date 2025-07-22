@@ -154,28 +154,51 @@ const popoverInternalController = {
     }
 };
 
-export const openAbicsAccessibilityPopover = async (controller, oEvent) => {
+export const openAccessPopover = async (controller, oEvent) => {
+    // DEBUG: Parameter checks
+    if (!controller || typeof controller.getView !== "function") {
+        console.error("[access_popover] ERROR: The controller parameter must be a UI5 Controller!", controller);
+        throw new Error("The controller parameter must be a UI5 Controller!");
+    }
+    if (!oEvent || typeof oEvent.getSource !== "function") {
+        console.error("[access_popover] ERROR: The oEvent parameter must be a UI5 Event!", oEvent);
+        throw new Error("The oEvent parameter must be a UI5 Event!");
+    }
     const oView = controller.getView();
     const sFragmentId = oView.getId();
 
     if (!controller._pPopover) {
+        console.debug("[access_popover] Popover is being loaded for the first time.");
         loadCustomStyleOnce();
         initFontSizer(oSettingsModel);
         initTextToSpeech(oSettingsModel);
 
         controller._pPopover = Fragment.load({
             id: sFragmentId,
-            name: "abics_accessibility_popover.Popover",
+            name: "access_popover.Popover",
             controller: popoverInternalController
         }).then((oPopover) => {
+            if (!oPopover) {
+                console.error("[access_popover] ERROR: Fragment could not be loaded!");
+                throw new Error("Popover Fragment could not be loaded!");
+            }
             oView.addDependent(oPopover);
 
-            oPopover.setModel(oSettingsModel, "settings");
+            try {
+                oPopover.setModel(oSettingsModel, "settings");
+            } catch (err) {
+                console.error("[access_popover] ERROR: Model could not be assigned!", err);
+            }
 
             const closeButton = Fragment.byId(sFragmentId, "closePopoverButton");
             const increaseButton = Fragment.byId(sFragmentId, "increaseFontButton");
             const decreaseButton = Fragment.byId(sFragmentId, "decreaseFontButton");
             const resetButton = Fragment.byId(sFragmentId, "resetFontButton");
+
+            if (!closeButton) console.warn("[access_popover] WARNING: closePopoverButton not found!");
+            if (!increaseButton) console.warn("[access_popover] WARNING: increaseFontButton not found!");
+            if (!decreaseButton) console.warn("[access_popover] WARNING: decreaseFontButton not found!");
+            if (!resetButton) console.warn("[access_popover] WARNING: resetFontButton not found!");
 
             closeButton?.attachPress(() => oPopover.close());
             increaseButton?.attachPress(onIncreaseFontSize);
@@ -251,13 +274,24 @@ export const openAbicsAccessibilityPopover = async (controller, oEvent) => {
             };
 
             return oPopover;
+        }).catch((err) => {
+            console.error("[access_popover] ERROR: Error occurred during Fragment.load!", err);
+            throw err;
         });
     }
 
     const oPopover = await controller._pPopover;
 
-    oPopover.setModel(new JSONModel({ items: popoverModules }), "modules");
-    oPopover.openBy(oEvent.getSource());
+    try {
+        oPopover.setModel(new JSONModel({ items: popoverModules }), "modules");
+    } catch (err) {
+        console.error("[access_popover] ERROR: Modules model could not be assigned!", err);
+    }
+    try {
+        oPopover.openBy(oEvent.getSource());
+    } catch (err) {
+        console.error("[access_popover] ERROR: Error during openBy!", err);
+    }
 };
 
 function updateContrastPreview() {

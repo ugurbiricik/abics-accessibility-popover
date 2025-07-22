@@ -71,8 +71,16 @@ server:
   customMiddleware:
     - name: ui5-tooling-modules
       afterMiddleware: compression
+    - name: fiori-tools-proxy
+      afterMiddleware: ui5-tooling-modules-middleware   // Important !!
       configuration:
-        debug: true
+        backend:
+          - path: /resources
+            url: https://ui5.sap.com
+          - path: /test-resources
+            url: https://ui5.sap.com
+          - path: /odata
+            url: http://localhost:4004
 ```
 
 📚 More info: [ui5-tooling-modules on npm](https://www.npmjs.com/package/ui5-tooling-modules)
@@ -111,7 +119,7 @@ This enables proper **type checking**, **auto-completion**, and **editor integra
 sap.ui.define([
   "./BaseController",
   "sap/m/MessageBox",
-  "abics_accessibility_popover",
+  "access_popover",
   "sap/ui/base/Event"
 ], function (BaseController, MessageBox, AccessibilityPopover, Event) {
   "use strict";
@@ -132,7 +140,7 @@ sap.ui.define([
 import MessageBox from "sap/m/MessageBox";
 import BaseController from "./BaseController";
 import UIEvent from "sap/ui/base/Event";
-import { openAbicsAccessibilityPopover } from "abics_accessibility_popover";
+import { openAbicsAccessibilityPopover } from "access_popover";
 
 /**
  * @namespace tsapp.controller

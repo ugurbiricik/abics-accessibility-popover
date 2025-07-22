@@ -8,7 +8,7 @@
         placement="Bottom"
         showArrow="false"
         title="Eye Able Assistent"
-        contentWidth="300px"
+        contentWidth="280px"
     >
         <customHeader>
             <Bar>
@@ -16,41 +16,41 @@
                     <Title text="Accessibility Assistent" class="popoverTitle" />
                 </contentMiddle>
                 <contentRight>
-                    <Button icon="sap-icon://notification" press=".onPopoverClosePress" tooltip="Schließen" class="closePopoverButton"/>
+                    <Button id="closePopoverButton" icon="sap-icon://notification" press=".onPopoverClosePress" tooltip="Schließen" class="closePopoverButton"/>
                 </contentRight>
             </Bar>
         </customHeader>
         <content>
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.FontSizePanel"
+                fragmentName="access_popover.fragments.FontSizePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.TextToSpeechPanel"
+                fragmentName="access_popover.fragments.TextToSpeechPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.ColorBlindnessPanel"
+                fragmentName="access_popover.fragments.ColorBlindnessPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.BlaufilterPanel"
+                fragmentName="access_popover.fragments.BlaufilterPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.NightModePanel"
+                fragmentName="access_popover.fragments.NightModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.ToggleImagesPanel"
+                fragmentName="access_popover.fragments.ToggleImagesPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.ContrastModePanel"
+                fragmentName="access_popover.fragments.ContrastModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="abics_accessibility_popover.fragments.ResetAllPanel"
+                fragmentName="access_popover.fragments.ResetAllPanel"
                 type="XML"
             />
         </content>
