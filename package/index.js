@@ -157,6 +157,38 @@ const popoverInternalController = {
         oSettingsModel.setProperty("/nightModeActive", false);
         oSettingsModel.setProperty("/toggleImagesActive", false);
         oSettingsModel.setProperty("/contrastModeActive", false);
+        
+        // Update text elements after reset
+        if (this._oPopover) {
+            const i18nModel = this._oPopover.getModel("i18n");
+            if (i18nModel && i18nModel.getResourceBundle) {
+                const bundle = i18nModel.getResourceBundle();
+                
+                // Update Night Mode text
+                const nightModeTitle = Fragment.byId(this._sFragmentId, "nightModeTitle");
+                if (nightModeTitle) {
+                    nightModeTitle.setText(bundle.getText("nightMode.activate"));
+                }
+                
+                // Update Blue Filter text
+                const blaufilterTitle = Fragment.byId(this._sFragmentId, "blaufilterTitle");
+                if (blaufilterTitle) {
+                    blaufilterTitle.setText(bundle.getText("blueFilter.activate"));
+                }
+                
+                // Update Toggle Images text
+                const toggleImagesTitle = Fragment.byId(this._sFragmentId, "toggleImagesTitle");
+                if (toggleImagesTitle) {
+                    toggleImagesTitle.setText(bundle.getText("toggleImages.hide"));
+                }
+                
+                // Update Contrast Mode text
+                const contrastModeTitle = Fragment.byId(this._sFragmentId, "contrastModeTitle");
+                if (contrastModeTitle) {
+                    contrastModeTitle.setText(bundle.getText("contrastMode.activate"));
+                }
+            }
+        }
     },
     onContrastPresetPress: function (oEvent) {
         const key = oEvent.getSource().getCustomData()[0].getValue();
