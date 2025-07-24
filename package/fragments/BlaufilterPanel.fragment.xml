@@ -3,7 +3,7 @@
       <headerToolbar>
          <OverflowToolbar active="true" press=".onBlaufilterToolbarPress">
             <core:Icon src="sap-icon://light-mode" size="20px" />
-            <Title text="{= ${settings>/blaufilterExpanded} ? 'Blaufilter deaktivieren' : 'Blaufilter aktivieren'}" />
+            <Title id="blaufilterTitle" text="{i18n>blueFilter.activate}" />
          </OverflowToolbar>
       </headerToolbar>
       <content>

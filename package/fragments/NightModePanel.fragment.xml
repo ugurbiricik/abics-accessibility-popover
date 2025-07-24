@@ -3,7 +3,7 @@
       <headerToolbar>
          <OverflowToolbar active="true" press=".onNightModeToolbarPress">
             <core:Icon src="sap-icon://dark-mode" size="20px" />
-            <Title text="{= ${settings>/nightModeActive} ? 'Nachtmodus deaktivieren' : 'Nachtmodus aktivieren' }" />
+            <Title id="nightModeTitle" text="{i18n>nightMode.activate}" />
          </OverflowToolbar>
       </headerToolbar>
    </Panel>

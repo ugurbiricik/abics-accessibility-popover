@@ -3,7 +3,7 @@
       <headerToolbar>
          <OverflowToolbar active="true" press=".onResetAllToolbarPress">
             <core:Icon src="sap-icon://reset" size="20px" />
-            <Title text="Alles zurücksetzen" />
+            <Title text="{i18n>resetAll.title}" />
          </OverflowToolbar>
       </headerToolbar>
    </Panel>

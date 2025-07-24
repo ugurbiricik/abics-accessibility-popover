@@ -3,7 +3,7 @@
       <headerToolbar>
          <OverflowToolbar active="true" press="onFontSizeToolbarPress">
           <core:Icon src="sap-icon://text" size="20px" />
-          <Title text="Schriftgröße"/>
+          <Title text="{i18n>fontSize.title}"/>
          </OverflowToolbar>
       </headerToolbar>
       <content>

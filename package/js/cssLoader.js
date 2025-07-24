@@ -6,10 +6,10 @@ export function loadCustomStyleOnce() {
   }
 
   try {
-    const sCorrectPath = sap.ui.require.toUrl("access_popover/css/style.css");
+    const sCorrectPath = sap.ui.require.toUrl("ui5-smart-access/css/style.css");
 
     const link = document.createElement("link");
-    link.id = "access_popover-styles";
+    link.id = "ui5-smart-access-styles";
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = sCorrectPath;

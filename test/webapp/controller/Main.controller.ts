@@ -1,6 +1,6 @@
 
 import BaseController from "./BaseController";
-import {openAccessPopover} from "access_popover";
+import {openAccessPopover} from "ui5-smart-access";
 import UIEvent from "sap/ui/base/Event";
 
 /**

@@ -3,7 +3,7 @@
       <headerToolbar>
          <OverflowToolbar active="true" press=".onToggleImagesToolbarPress">
             <core:Icon src="sap-icon://background" size="20px" />
-            <Title text="{= ${settings>/toggleImagesActive} ? 'Bilder einblenden' : 'Bilder ausblenden' }" />
+            <Title id="toggleImagesTitle" text="{i18n>toggleImages.hide}" />
          </OverflowToolbar>
       </headerToolbar>
    </Panel>

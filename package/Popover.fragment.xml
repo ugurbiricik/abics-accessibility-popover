@@ -7,50 +7,50 @@
         id="abicsAccessibilityPopover"
         placement="Bottom"
         showArrow="false"
-        title="Eye Able Assistent"
+        title="{i18n>popover.title}"
         contentWidth="280px"
     >
         <customHeader>
             <Bar>
                 <contentMiddle>
-                    <Title text="Accessibility Assistent" class="popoverTitle" />
+                    <Title text="{i18n>popover.header.title}" class="popoverTitle" />
                 </contentMiddle>
                 <contentRight>
-                    <Button id="closePopoverButton" icon="sap-icon://notification" press=".onPopoverClosePress" tooltip="Schließen" class="closePopoverButton"/>
+                    <Button id="closePopoverButton" icon="sap-icon://notification" press=".onPopoverClosePress" tooltip="{i18n>popover.close.tooltip}" class="closePopoverButton"/>
                 </contentRight>
             </Bar>
         </customHeader>
         <content>
             <core:Fragment
-                fragmentName="access_popover.fragments.FontSizePanel"
+                fragmentName="ui5-smart-access.fragments.FontSizePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.TextToSpeechPanel"
+                fragmentName="ui5-smart-access.fragments.TextToSpeechPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.ColorBlindnessPanel"
+                fragmentName="ui5-smart-access.fragments.ColorBlindnessPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.BlaufilterPanel"
+                fragmentName="ui5-smart-access.fragments.BlaufilterPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.NightModePanel"
+                fragmentName="ui5-smart-access.fragments.NightModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.ToggleImagesPanel"
+                fragmentName="ui5-smart-access.fragments.ToggleImagesPanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.ContrastModePanel"
+                fragmentName="ui5-smart-access.fragments.ContrastModePanel"
                 type="XML"
             />
             <core:Fragment
-                fragmentName="access_popover.fragments.ResetAllPanel"
+                fragmentName="ui5-smart-access.fragments.ResetAllPanel"
                 type="XML"
             />
         </content>

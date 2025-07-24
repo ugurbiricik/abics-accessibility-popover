@@ -3,7 +3,7 @@
         <headerToolbar>
             <OverflowToolbar active="true" press=".onContrastModeToolbarPress">
                 <core:Icon src="sap-icon://paint-bucket" size="20px" />
-                <Title text="{= ${settings>/contrastModeActive} ? 'Kontrastmodus deaktivieren' : 'Kontrastmodus aktivieren' }" />
+                <Title id="contrastModeTitle" text="{i18n>contrastMode.activate}" />
             </OverflowToolbar>
         </headerToolbar>
     </Panel>

@@ -1,7 +1,8 @@
 import JSONModel from "sap/ui/model/json/JSONModel";
-import popoverModules from "./popoverModules.js";
+import getPopoverModules from "./popoverModules.js";
 import Fragment from "sap/ui/core/Fragment";
 import { loadCustomStyleOnce } from "./js/cssLoader.js";
+import { createI18nModel, getText } from "./js/i18nModel.js";
 import {
     initFontSizer,
     onIncreaseFontSize,
@@ -75,6 +76,18 @@ const popoverInternalController = {
     onBlaufilterToolbarPress: function () {
         const expanded = oSettingsModel.getProperty("/blaufilterExpanded");
         oSettingsModel.setProperty("/blaufilterExpanded", !expanded);
+        
+        
+        const blaufilterTitle = Fragment.byId(this._sFragmentId, "blaufilterTitle");
+        if (blaufilterTitle && this._oPopover) {
+            const i18nModel = this._oPopover.getModel("i18n");
+            if (i18nModel && i18nModel.getResourceBundle) {
+                const bundle = i18nModel.getResourceBundle();
+                const newText = !expanded ? bundle.getText("blueFilter.deactivate") : bundle.getText("blueFilter.activate");
+                blaufilterTitle.setText(newText);
+            }
+        }
+        
         if (!expanded) {
             enableBlueLightFilter(oSettingsModel.getProperty("/blueLightFilterLevel"));
             oSettingsModel.setProperty("/blueLightFilterActive", true);
@@ -86,14 +99,47 @@ const popoverInternalController = {
     onNightModeToolbarPress: function () {
         const active = toggleNightMode();
         oSettingsModel.setProperty("/nightModeActive", active);
+        
+       
+        const nightModeTitle = Fragment.byId(this._sFragmentId, "nightModeTitle");
+        if (nightModeTitle && this._oPopover) {
+            const i18nModel = this._oPopover.getModel("i18n");
+            if (i18nModel && i18nModel.getResourceBundle) {
+                const bundle = i18nModel.getResourceBundle();
+                const newText = active ? bundle.getText("nightMode.deactivate") : bundle.getText("nightMode.activate");
+                nightModeTitle.setText(newText);
+            }
+        }
     },
     onToggleImagesToolbarPress: function () {
         const active = toggleImages();
         oSettingsModel.setProperty("/toggleImagesActive", active);
+        
+ 
+        const toggleImagesTitle = Fragment.byId(this._sFragmentId, "toggleImagesTitle");
+        if (toggleImagesTitle && this._oPopover) {
+            const i18nModel = this._oPopover.getModel("i18n");
+            if (i18nModel && i18nModel.getResourceBundle) {
+                const bundle = i18nModel.getResourceBundle();
+                const newText = active ? bundle.getText("toggleImages.show") : bundle.getText("toggleImages.hide");
+                toggleImagesTitle.setText(newText);
+            }
+        }
     },
     onContrastModeToolbarPress: function () {
         const active = toggleContrastMode();
         oSettingsModel.setProperty("/contrastModeActive", active);
+        
+       
+        const contrastModeTitle = Fragment.byId(this._sFragmentId, "contrastModeTitle");
+        if (contrastModeTitle && this._oPopover) {
+            const i18nModel = this._oPopover.getModel("i18n");
+            if (i18nModel && i18nModel.getResourceBundle) {
+                const bundle = i18nModel.getResourceBundle();
+                const newText = active ? bundle.getText("contrastMode.deactivate") : bundle.getText("contrastMode.activate");
+                contrastModeTitle.setText(newText);
+            }
+        }
     },
     onResetAllToolbarPress: function () {
         resetAll();
@@ -157,37 +203,44 @@ const popoverInternalController = {
 export const openAccessPopover = async (controller, oEvent) => {
     // DEBUG: Parameter checks
     if (!controller || typeof controller.getView !== "function") {
-        console.error("[access_popover] ERROR: The controller parameter must be a UI5 Controller!", controller);
+        console.error("[ui5-smart-access] ERROR: The controller parameter must be a UI5 Controller!", controller);
         throw new Error("The controller parameter must be a UI5 Controller!");
     }
     if (!oEvent || typeof oEvent.getSource !== "function") {
-        console.error("[access_popover] ERROR: The oEvent parameter must be a UI5 Event!", oEvent);
+        console.error("[ui5-smart-access] ERROR: The oEvent parameter must be a UI5 Event!", oEvent);
         throw new Error("The oEvent parameter must be a UI5 Event!");
     }
     const oView = controller.getView();
     const sFragmentId = oView.getId();
 
     if (!controller._pPopover) {
-        console.debug("[access_popover] Popover is being loaded for the first time.");
+        console.debug("[ui5-smart-access] Popover is being loaded for the first time.");
         loadCustomStyleOnce();
         initFontSizer(oSettingsModel);
         initTextToSpeech(oSettingsModel);
 
+        const i18nModel = createI18nModel();
+
         controller._pPopover = Fragment.load({
             id: sFragmentId,
-            name: "access_popover.Popover",
+            name: "ui5-smart-access.Popover",
             controller: popoverInternalController
         }).then((oPopover) => {
             if (!oPopover) {
-                console.error("[access_popover] ERROR: Fragment could not be loaded!");
+                console.error("[ui5-smart-access] ERROR: Fragment could not be loaded!");
                 throw new Error("Popover Fragment could not be loaded!");
             }
             oView.addDependent(oPopover);
 
             try {
                 oPopover.setModel(oSettingsModel, "settings");
+                oPopover.setModel(i18nModel, "i18n");
+                console.log("[ui5-smart-access] I18n model successfully assigned to popover");
+                
+                popoverInternalController._oPopover = oPopover;
+                popoverInternalController._sFragmentId = sFragmentId;
             } catch (err) {
-                console.error("[access_popover] ERROR: Model could not be assigned!", err);
+                console.error("[ui5-smart-access] ERROR: Model could not be assigned!", err);
             }
 
             const closeButton = Fragment.byId(sFragmentId, "closePopoverButton");
@@ -195,10 +248,10 @@ export const openAccessPopover = async (controller, oEvent) => {
             const decreaseButton = Fragment.byId(sFragmentId, "decreaseFontButton");
             const resetButton = Fragment.byId(sFragmentId, "resetFontButton");
 
-            if (!closeButton) console.warn("[access_popover] WARNING: closePopoverButton not found!");
-            if (!increaseButton) console.warn("[access_popover] WARNING: increaseFontButton not found!");
-            if (!decreaseButton) console.warn("[access_popover] WARNING: decreaseFontButton not found!");
-            if (!resetButton) console.warn("[access_popover] WARNING: resetFontButton not found!");
+            if (!closeButton) console.warn("[ui5-smart-access] WARNING: closePopoverButton not found!");
+            if (!increaseButton) console.warn("[ui5-smart-access] WARNING: increaseFontButton not found!");
+            if (!decreaseButton) console.warn("[ui5-smart-access] WARNING: decreaseFontButton not found!");
+            if (!resetButton) console.warn("[ui5-smart-access] WARNING: resetFontButton not found!");
 
             closeButton?.attachPress(() => oPopover.close());
             increaseButton?.attachPress(onIncreaseFontSize);
@@ -262,7 +315,10 @@ export const openAccessPopover = async (controller, oEvent) => {
                     const name = context.getProperty("name");
                     const expanded = context.getProperty("expanded");
                     context.getModel().setProperty(context.getPath() + "/expanded", !expanded);
-                    if (name === "Blaufilter aktivieren") {
+                 
+                    const activateText = getText("blueFilter.activate");
+                    const deactivateText = getText("blueFilter.deactivate");
+                    if (name === activateText || name === deactivateText) {
                         if (!expanded) {
                             const level = oSettingsModel.getProperty("/blueLightFilterLevel");
                             enableBlueLightFilter(level);
@@ -275,7 +331,7 @@ export const openAccessPopover = async (controller, oEvent) => {
 
             return oPopover;
         }).catch((err) => {
-            console.error("[access_popover] ERROR: Error occurred during Fragment.load!", err);
+            console.error("[ui5-smart-access] ERROR: Error occurred during Fragment.load!", err);
             throw err;
         });
     }
@@ -283,14 +339,14 @@ export const openAccessPopover = async (controller, oEvent) => {
     const oPopover = await controller._pPopover;
 
     try {
-        oPopover.setModel(new JSONModel({ items: popoverModules }), "modules");
+        oPopover.setModel(new JSONModel({ items: getPopoverModules() }), "modules");
     } catch (err) {
-        console.error("[access_popover] ERROR: Modules model could not be assigned!", err);
+        console.error("[ui5-smart-access] ERROR: Modules model could not be assigned!", err);
     }
     try {
         oPopover.openBy(oEvent.getSource());
     } catch (err) {
-        console.error("[access_popover] ERROR: Error during openBy!", err);
+        console.error("[ui5-smart-access] ERROR: Error during openBy!", err);
     }
 };
 
@@ -299,7 +355,7 @@ function updateContrastPreview() {
     const text = oSettingsModel.getProperty("/contrastTextColor");
     const ratio = getContrastRatio(bg, text);
     oSettingsModel.setProperty("/contrastRatio", ratio.ratioText);
-    oSettingsModel.setProperty("/contrastReadable", ratio.readable ? "LESBAR" : "NICHT LESBAR");
+    oSettingsModel.setProperty("/contrastReadable", ratio.readable ? getText("contrast.readable") : getText("contrast.notReadable"));
 }
 function getContrastRatio(bg, text) {
     function luminance(hex) {
