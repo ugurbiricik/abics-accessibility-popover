@@ -99,7 +99,6 @@ const popoverInternalController = {
     onNightModeToolbarPress: function () {
         const active = toggleNightMode();
         oSettingsModel.setProperty("/nightModeActive", active);
-        console.log("nightModeActive", active);
         
        
         const nightModeTitle = Fragment.byId(this._sFragmentId, "nightModeTitle");
